@@ -227,7 +227,7 @@ function generatePointsFromSvg() {
         var path = $($(paths).get(i)).attr('d').replace(' ', ',');
 
         // get points at regular intervals
-        var data_points = "";
+        var data_points = "{ "color": "black", "path": [;
         var color = randomColor();
         var c;
         for (c = 0; c < Raphael.getTotalLength(path); c += step_point) {
@@ -241,7 +241,7 @@ function generatePointsFromSvg() {
         }
 
         all_points_count += c;
-        all_points += data_points + "#&#13;";
+        all_points += data_points + "]},&#13;";
         addBelow("Path " + i, color, data_points, c / step_point);
     }
 
